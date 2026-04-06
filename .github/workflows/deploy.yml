@@ -45,8 +45,12 @@ jobs:
           username: ${{ vars.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            # Set PATH to include common node/pm2 locations
-            export PATH=$PATH:/usr/local/bin:~/.npm-global/bin:$(npm bin -g 2>/dev/null || true)
+            # Load nvm if installed
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            # Fallback: add common Node/npm paths
+            export PATH=$PATH:/usr/local/bin:/usr/bin:/usr/local/node/bin
 
             # Install PM2 globally if not found
             if ! command -v pm2 &> /dev/null; then
