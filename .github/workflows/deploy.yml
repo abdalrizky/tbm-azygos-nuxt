@@ -7,15 +7,15 @@ on:
 
 jobs:
   deploy:
-    name: Build & Deploy
+    name: Build & Deploy (SSR)
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: '24'
           cache: 'npm'
@@ -23,29 +23,60 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate static Nuxt app
-        run: npm run generate
+      - name: Build Nuxt app (SSR)
+        run: npm run build
 
-      - name: Deploy static files to VPS
+      - name: Create deployment archive
+        run: tar -czf deploy.tar.gz .output package.json
+
+      - name: Upload archive to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ vars.SERVER_IP }}
           username: ${{ vars.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
-          source: ".output/public/"
-          target: "~/public_html_deploy_tmp/"
-          strip_components: 2
+          source: "deploy.tar.gz"
+          target: "/tmp/"
 
-      - name: Swap deployment directory
+      - name: Deploy and Start on VPS
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ vars.SERVER_IP }}
           username: ${{ vars.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            # Backup old files and replace with new ones
-            rm -rf ~/public_html_old
-            mv ~/public_html ~/public_html_old 2>/dev/null || true
-            mv ~/public_html_deploy_tmp ~/public_html
-            rm -rf ~/public_html_old
-            echo "Deployment complete!"
+            # Install NVM if not present
+            export NVM_DIR="$HOME/.nvm"
+            if [ ! -s "$NVM_DIR/nvm.sh" ]; then
+              curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+            fi
+
+            # Load NVM
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            # Install Node.js 24 LTS if not present
+            if ! node -v 2>/dev/null | grep -q "^v24"; then
+              nvm install 24
+              nvm use 24
+              nvm alias default 24
+            fi
+
+            # Install PM2 globally if not found
+            if ! command -v pm2 &> /dev/null; then
+              npm install -g pm2
+            fi
+
+            # Extract archive to public_html directory
+            mkdir -p ~/public_html
+            tar -xzf /tmp/deploy.tar.gz -C ~/public_html
+            rm /tmp/deploy.tar.gz
+
+            # Restart or Start the app with PM2
+            cd ~/public_html
+            if pm2 describe tbm-azygos > /dev/null 2>&1; then
+              pm2 reload tbm-azygos
+            else
+              pm2 start .output/server/index.mjs --name tbm-azygos
+            fi
+
+            pm2 save
