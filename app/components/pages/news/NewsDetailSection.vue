@@ -35,7 +35,7 @@ const formatDate = (dateString) => {
         <img :src="news.image" :alt="news.title" class="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg mb-8">
 
         <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
-          <p v-html="news.body"></p>
+          <div v-html="news.body"></div>
         </div>
 
         <div class="mt-12">
