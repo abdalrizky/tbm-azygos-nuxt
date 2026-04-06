@@ -1,8 +1,11 @@
 <script setup lang="ts">
-const route = useRoute()
-const { data: newsData, error } = await useFetch(`/api/news/${route.params.slug}`)
+import { ref } from 'vue'
+import { getNewsBySlug } from '~/services/newsService'
 
-if (error.value || !newsData.value) {
+const route = useRoute()
+const newsData = ref(getNewsBySlug(route.params.slug as string))
+
+if (!newsData.value) {
   throw createError({ statusCode: 404, statusMessage: 'Berita tidak ditemukan', fatal: true })
 }
 

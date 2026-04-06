@@ -36,13 +36,8 @@ const backgroundClass = computed(() => {
   return route.path === '/' ? 'bg-blue-50' : 'bg-white';
 });
 
-onMounted(async () => {
-  try {
-    allNews.value = getAllNews();
-  } catch (error) {
-    console.error('Error fetching news:', error);
-  }
-});
+// Fetch data immediately for SSG crawling
+allNews.value = getAllNews();
 </script>
 
 <template>

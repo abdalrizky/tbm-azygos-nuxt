@@ -1,6 +1,8 @@
 <script setup>
 import { Icon } from "@iconify/vue";
-const { data: contacts } = await useFetch('/api/contacts');
+import { getContacts } from '~/services/contactsService';
+
+const contacts = getContacts();
 </script>
 
 <template>
