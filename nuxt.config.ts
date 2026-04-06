@@ -6,8 +6,18 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   modules: [
     '@nuxtjs/tailwindcss',
-    'nuxt-gtag'
+    'nuxt-gtag',
+    '@nuxtjs/sitemap'
   ],
+  site: {
+    url: 'https://tbmazygos.fk.unmul.ac.id',
+    name: 'TBM Azygos'
+  },
+  sitemap: {
+    sources: [
+      '/api/_sitemap-urls'
+    ]
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
