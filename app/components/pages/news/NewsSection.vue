@@ -14,14 +14,7 @@ const props = defineProps({
   }
 });
 
-const allNews = ref([]);
 
-const displayedNews = computed(() => {
-  if (props.limit > 0) {
-    return allNews.value.slice(0, props.limit);
-  }
-  return allNews.value;
-});
 
 const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString('id-ID', {
