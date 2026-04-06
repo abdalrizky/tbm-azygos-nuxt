@@ -3,7 +3,12 @@ import { ref } from 'vue'
 import { getNewsBySlug } from '~/services/newsService'
 
 const route = useRoute()
-const newsData = ref(getNewsBySlug(route.params.slug as string))
+const slug = route.params.slug as string
+
+// Use useAsyncData to ensure state is serialized for hydration
+const { data: newsData } = await useAsyncData(`news-${slug}`, () => {
+  return getNewsBySlug(slug)
+})
 
 if (!newsData.value) {
   throw createError({ statusCode: 404, statusMessage: 'Berita tidak ditemukan', fatal: true })

@@ -36,8 +36,17 @@ const backgroundClass = computed(() => {
   return route.path === '/' ? 'bg-blue-50' : 'bg-white';
 });
 
-// Fetch data immediately for SSG crawling
-allNews.value = getAllNews();
+// Fetch data using useAsyncData for stable SSG/SSR serialization
+const { data: allNews } = await useAsyncData('news-list', () => {
+  return getAllNews()
+});
+
+const displayedNews = computed(() => {
+  if (props.limit > 0 && allNews.value) {
+    return allNews.value.slice(0, props.limit);
+  }
+  return allNews.value || [];
+});
 </script>
 
 <template>
