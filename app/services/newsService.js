@@ -209,7 +209,7 @@ const newsData = [
             "</ol>\n" +
             "<p>&nbsp;</p>\n" +
             "<p>AZYGOS!!! JAYA!!!</p>",
-        date: "2025-8-31",
+        date: "2025-08-31",
         author: "Divisi Kaderisasi TBM Azygos",
         image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVruj0AR9AVIvMQ2hFtH4Pw0Jc-RpTWdTxEMAKicTFEf4SNKpQntO6l-frAMFqlJ2Sdczd0mwsk-kUAcJVij6TUmvgh1Jeh5dfONdFGvb8B4-Y0qk5eB3oJUADIIbvzc52y5dEaDIEiCyv6tWURFCnIp3GPBIXK6_4mE7dTtH5zOpsM3myLJdtsKKtQZs/s1350/EVENT%20REPORT%20INFO%20PENJAR%20.png"
     },
@@ -269,7 +269,7 @@ const newsData = [
             "</ol>\n" +
             "<p>&nbsp;</p>\n" +
             "<p>AZYGOS!!! JAYA!!!</p>",
-        date: "2025-8-27",
+        date: "2025-08-27",
         author: "Divisi Kaderisasi TBM Azygos",
         image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFlyjZwVdGaJFgFgLBJDE9aMNRBuEtLHoBMl2Vx6w1orO7u7h1vtG7jolNN0N4MR-44MzHkmCuGZhQdQOyAmXkQsVtiYrLncEdwtpIiGT1v7n0DQ8CEmyss9mZtC7H5IVHpZZu4dK5zf8rd3la2BDW8vJv5s9SCUZX5LMPqSVTPn0p2-L6pLCPslNb6OE/s1280/1000180893.jpg"
     },
@@ -285,7 +285,7 @@ const newsData = [
             "<div class=\"separator\">Kegiatan ini dihadiri oleh berbagai elemen masyarakat, mulai dari mahasiswa hingga organisasi kemasyarakatan (ormas) di Samarinda. Tujuan utama dari acara ini adalah untuk meningkatkan pemahaman serta keterampilan masyarakat dalam penanganan awal kegawatdaruratan medis, khususnya pada kasus-kasus yang berkaitan dengan kondisi lingkungan.</div>\n" +
             "<div class=\"separator\">&nbsp;</div>\n" +
             "<div class=\"separator\">Melalui sesi seminar dan pelatihan langsung, para peserta dibekali dengan ilmu serta praktik lapangan yang aplikatif dan relevan. Diharapkan, melalui kegiatan ini, angka kematian akibat kegagalan penanganan awal dalam situasi gawat darurat dapat diminimalkan, serta kesadaran masyarakat terhadap pentingnya pertolongan pertama dapat meningkat.</div>",
-        date: "2025-8-25",
+        date: "2025-08-25",
         author: "Divisi Diklat TBM Azygos",
         image: "https://blogger.googleusercontent.com/img/a/AVvXsEhmxyVCUU4Iporz6QLm5_8FnAd1hlxs9JU8OgM9zJJG2F9F5VzGo_ei0pMjDbKc4Sl8qhTgPd1t8ZT1JVypYgsb0qupr59tin42ftbcsdZcHC_yb0A1PexIHgf15Ohj1ljf7pDbbjMS06rq850yEKNlpq3_6vrpiT6-Noz_ZBMakUuVIHDNPWYw9F8oeF4"
     },
