@@ -1,4 +1,4 @@
-import { getAllNews } from '../../app/services/newsService'
+import { getAllNews } from '~~/app/services/newsService.js'
 
 export default defineSitemapEventHandler(() => {
   const news = getAllNews()
