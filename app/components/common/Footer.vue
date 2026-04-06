@@ -1,6 +1,11 @@
 <script setup>
 import { Icon } from "@iconify/vue";
-const { data: contacts } = await useFetch('/api/contacts');
+import { getContacts } from '~/services/contactsService';
+
+// Use useAsyncData with a stable key and direct service call to prevent any hydration mismatch
+const { data: contacts } = await useAsyncData('contacts-stable', () => {
+  return Promise.resolve(getContacts())
+});
 </script>
 
 <template>

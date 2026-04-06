@@ -1,6 +1,16 @@
 <script setup lang="ts">
+import { getNewsBySlug } from '~/services/newsService'
+
 const route = useRoute()
-const { data: newsData, error } = await useFetch(`/api/news/${route.params.slug}`)
+const slug = route.params.slug as string
+
+// Use useAsyncData with a stable key and direct service call to prevent any hydration mismatch
+const { data: newsData, error } = await useAsyncData(
+  `news-detail-${slug}`,
+  () => {
+    return Promise.resolve(getNewsBySlug(slug))
+  }
+)
 
 if (error.value || !newsData.value) {
   throw createError({ statusCode: 404, statusMessage: 'Berita tidak ditemukan', fatal: true })

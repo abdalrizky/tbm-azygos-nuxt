@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
+import { getAllNews } from '~/services/newsService';
 
 
 const props = defineProps({
@@ -29,8 +30,10 @@ const backgroundClass = computed(() => {
   return route.path === '/' ? 'bg-blue-50' : 'bg-white';
 });
 
-// Fetch data using useFetch from the Nitro API endpoint
-const { data: allNews } = await useFetch('/api/news');
+// Use useAsyncData with a stable key and direct service call to prevent any hydration mismatch
+const { data: allNews } = await useAsyncData('news-list-stable', () => {
+  return Promise.resolve(getAllNews())
+});
 
 const displayedNews = computed(() => {
   if (props.limit > 0 && allNews.value) {
