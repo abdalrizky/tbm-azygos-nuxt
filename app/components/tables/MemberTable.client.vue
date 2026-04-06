@@ -9,8 +9,16 @@ import 'datatables.net-responsive-dt/css/responsive.dataTables.min.css';
 
 DataTable.use(DataTablesCore);
 
-const members = ref([]);
-const loading = ref(true);
+const props = defineProps({
+  members: {
+    type: Array,
+    required: true
+  },
+  loading: {
+    type: Boolean,
+    default: true
+  }
+});
 
 const columns = [
   {data: 'name'},
@@ -49,21 +57,6 @@ const options = {
     },
   }
 };
-
-const fetchData = async () => {
-  try {
-    const response = await $fetch('https://portal.tbmazygos.fk.unmul.ac.id/api/v1/members');
-    members.value = response.data ? response.data : response;
-  } catch (error) {
-    console.error("Gagal mengambil data:", error);
-  } finally {
-    loading.value = false;
-  }
-};
-
-onMounted(() => {
-  fetchData();
-});
 </script>
 
 <template>

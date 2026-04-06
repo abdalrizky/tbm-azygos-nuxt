@@ -1,16 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { getNewsBySlug } from '~/services/newsService'
-
 const route = useRoute()
-const slug = route.params.slug as string
+const { data: newsData, error } = await useFetch(`/api/news/${route.params.slug}`)
 
-// Use useAsyncData to ensure state is serialized for hydration
-const { data: newsData } = await useAsyncData(`news-${slug}`, () => {
-  return getNewsBySlug(slug)
-})
-
-if (!newsData.value) {
+if (error.value || !newsData.value) {
   throw createError({ statusCode: 404, statusMessage: 'Berita tidak ditemukan', fatal: true })
 }
 

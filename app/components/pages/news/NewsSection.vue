@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
-import { getAllNews } from '~/services/newsService';
+
 
 const props = defineProps({
   limit: {
@@ -29,10 +29,8 @@ const backgroundClass = computed(() => {
   return route.path === '/' ? 'bg-blue-50' : 'bg-white';
 });
 
-// Fetch data using useAsyncData for stable SSG/SSR serialization
-const { data: allNews } = await useAsyncData('news-list', () => {
-  return getAllNews()
-});
+// Fetch data using useFetch from the Nitro API endpoint
+const { data: allNews } = await useFetch('/api/news');
 
 const displayedNews = computed(() => {
   if (props.limit > 0 && allNews.value) {
