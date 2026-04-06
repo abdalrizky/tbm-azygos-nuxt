@@ -21,7 +21,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Nuxt app
         run: npm run build
@@ -45,13 +45,21 @@ jobs:
           username: ${{ vars.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
+            # Set PATH to include common node/pm2 locations
+            export PATH=$PATH:/usr/local/bin:~/.npm-global/bin:$(npm bin -g 2>/dev/null || true)
+
+            # Install PM2 globally if not found
+            if ! command -v pm2 &> /dev/null; then
+              npm install -g pm2
+            fi
+
             # Extract archive to app directory
-            mkdir -p /public_html
-            tar -xzf /tmp/deploy.tar.gz -C /public_html
+            mkdir -p ~/public_html
+            tar -xzf /tmp/deploy.tar.gz -C ~/public_html
             rm /tmp/deploy.tar.gz
 
             # Reload or start the app using PM2
-            cd /public_html
+            cd ~/public_html
             if pm2 describe tbm-azygos > /dev/null 2>&1; then
               pm2 reload tbm-azygos
             else
