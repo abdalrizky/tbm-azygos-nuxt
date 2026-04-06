@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           source: ".output/public/"
           target: "~/public_html_deploy_tmp/"
-          strip_components: 3
+          strip_components: 2
 
       - name: Swap deployment directory
         uses: appleboy/ssh-action@v1.0.3
