@@ -23,60 +23,29 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Nuxt app
-        run: npm run build
+      - name: Generate static Nuxt app
+        run: npm run generate
 
-      - name: Create deployment archive
-        run: tar -czf deploy.tar.gz .output package.json
-
-      - name: Upload archive to VPS
+      - name: Deploy static files to VPS
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ vars.SERVER_IP }}
           username: ${{ vars.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
-          source: "deploy.tar.gz"
-          target: "/tmp/"
+          source: ".output/public/"
+          target: "~/public_html_deploy_tmp/"
+          strip_components: 3
 
-      - name: Deploy on VPS
+      - name: Swap deployment directory
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ vars.SERVER_IP }}
           username: ${{ vars.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            # Install NVM if not present
-            export NVM_DIR="$HOME/.nvm"
-            if [ ! -s "$NVM_DIR/nvm.sh" ]; then
-              curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
-            fi
-
-            # Load NVM
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-            # Install Node.js 24 LTS if not present
-            if ! node -v 2>/dev/null | grep -q "^v24"; then
-              nvm install 24
-              nvm use 24
-              nvm alias default 24
-            fi
-
-            # Install PM2 globally if not found
-            if ! command -v pm2 &> /dev/null; then
-              npm install -g pm2
-            fi
-
-            # Extract archive to app directory
-            mkdir -p ~/public_html
-            tar -xzf /tmp/deploy.tar.gz -C ~/public_html
-            rm /tmp/deploy.tar.gz
-
-            # Reload or start the app using PM2
-            cd ~/public_html
-            if pm2 describe tbm-azygos > /dev/null 2>&1; then
-              pm2 reload tbm-azygos
-            else
-              pm2 start .output/server/index.mjs --name tbm-azygos
-            fi
-
-            pm2 save
+            # Backup old files and replace with new ones
+            rm -rf ~/public_html_old
+            mv ~/public_html ~/public_html_old 2>/dev/null || true
+            mv ~/public_html_deploy_tmp ~/public_html
+            rm -rf ~/public_html_old
+            echo "Deployment complete!"
