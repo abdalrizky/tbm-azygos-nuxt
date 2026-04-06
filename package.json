@@ -25,6 +25,7 @@
   "devDependencies": {
     "@nuxtjs/sitemap": "^8.0.11",
     "@nuxtjs/tailwindcss": "^6.13.1",
+    "@types/nprogress": "^0.2.3",
     "nuxt-gtag": "^3.0.0"
   }
 }
