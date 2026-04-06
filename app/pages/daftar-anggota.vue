@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Daftar Anggota - TBM Azygos',
+  title: 'Daftar Anggota',
   description: 'Daftar Anggota Tim Bantuan Medis Azygos.'
 })
 </script>

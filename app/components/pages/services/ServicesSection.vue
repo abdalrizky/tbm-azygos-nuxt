@@ -19,7 +19,7 @@
           </h3>
           <div class="bg-white p-4 rounded-xl shadow-2xl">
             <img
-                src="/src/assets/images/alur-kerja-sama.png"
+                src="~/assets/images/alur-kerja-sama.png"
                 alt="Diagram alur kerja sama"
                 class="w-full h-auto rounded-lg"
             >
@@ -37,7 +37,7 @@
             </h4>
             <div class="bg-white p-4 rounded-xl shadow-2xl">
               <img
-                  src="/src/assets/images/daftar-harga-peminjaman-alat-kesehatan.png"
+                  src="~/assets/images/daftar-harga-peminjaman-alat-kesehatan.png"
                   alt="Daftar harga peminjaman alat kesehatan"
                   class="w-full h-auto rounded-lg"
               >

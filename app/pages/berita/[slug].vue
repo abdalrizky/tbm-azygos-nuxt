@@ -7,7 +7,7 @@ if (error.value || !newsData.value) {
 }
 
 useSeoMeta({
-  title: () => `${newsData.value?.title} - TBM Azygos`,
+  title: () => `${newsData.value?.title}`,
   description: () => newsData.value?.excerpt,
   ogImage: () => newsData.value?.image
 })

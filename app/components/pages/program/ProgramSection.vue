@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue';
-import timReaksiCepatImg from '/src/assets/images/program-kerja-tim-reaksi-cepat.jpg';
-import baktiSosialImg from '/src/assets/images/program-kerja-bakti-sosial.jpeg';
-import tendaTensiImg from '/src/assets/images/program-kerja-tenda-tensi.jpg';
-import seminarWorkshopImg from '/src/assets/images/program-kerja-seminar-and-workshop.jpeg';
-import jagaMedisImg from '/src/assets/images/program-kerja-jaga-medis-insidental.jpg';
-import azygosGoesToSchoolImg from '/src/assets/images/program-kerja-azygos-goes-to-school.jpeg';
+import timReaksiCepatImg from '~/assets/images/program-kerja-tim-reaksi-cepat.jpg';
+import baktiSosialImg from '~/assets/images/program-kerja-bakti-sosial.jpeg';
+import tendaTensiImg from '~/assets/images/program-kerja-tenda-tensi.jpg';
+import seminarWorkshopImg from '~/assets/images/program-kerja-seminar-and-workshop.jpeg';
+import jagaMedisImg from '~/assets/images/program-kerja-jaga-medis-insidental.jpg';
+import azygosGoesToSchoolImg from '~/assets/images/program-kerja-azygos-goes-to-school.jpeg';
 
 const workPrograms = ref([
   {

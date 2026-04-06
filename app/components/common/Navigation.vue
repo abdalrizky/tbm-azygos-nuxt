@@ -8,7 +8,7 @@ const isHomepage = computed(() => route.path === '/');
 
 const updateNavState = () => {
   if (isHomepage.value) {
-    isNavSolid.value = window.scrollY > 10;
+    isNavSolid.value = typeof window !== 'undefined' ? window.scrollY > 10 : false;
   } else {
     isNavSolid.value = true;
   }

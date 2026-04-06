@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Beranda - TBM Azygos',
+  title: 'Beranda',
   description: 'Beranda Tim Bantuan Medis (TBM) Azygos Fakultas Kedokteran Universitas Mulawarman.'
 })
 </script>

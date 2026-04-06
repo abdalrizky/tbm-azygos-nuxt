@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
-import { getAllNews } from '@/services/newsService';
+import { getAllNews } from '~/services/newsService';
 
 const props = defineProps({
   limit: {

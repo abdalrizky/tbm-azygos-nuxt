@@ -52,7 +52,7 @@ const scrollToAboutSection = () => {
 
 <style scoped>
 .container-custom {
-  background-image: linear-gradient(rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.7)), url("/src/assets/images/hero-background.jpg");
+  background-image: linear-gradient(rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.7)), url("~/assets/images/hero-background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

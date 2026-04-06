@@ -6,7 +6,7 @@ const props = defineProps({
 const handleError = () => clearError({ redirect: '/' })
 
 useSeoMeta({
-  title: 'Halaman Tidak Ditemukan - TBM Azygos'
+  title: 'Halaman Tidak Ditemukan'
 })
 </script>
 

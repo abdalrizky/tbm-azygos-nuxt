@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from "vue";
-import D3OrgChart from "@/components/chart/D3OrgChart.vue";
+import D3OrgChart from "~/components/chart/D3OrgChart.client.vue";
 const organizationData = ref([
   { id: "1", parentId: "", nama: "Atoluan Joshua Nosa", jabatan: "Ketua Umum" },
   { id: "4", parentId: "1", nama: "Cecilia Florentina Sihotang", jabatan: "Kepala Divisi Diklat" },
