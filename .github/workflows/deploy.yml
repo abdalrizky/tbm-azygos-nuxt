@@ -1,0 +1,61 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Nuxt app
+        run: npm run build
+
+      - name: Create deployment archive
+        run: tar -czf deploy.tar.gz .output package.json
+
+      - name: Upload archive to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ vars.SERVER_IP }}
+          username: ${{ vars.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          source: "deploy.tar.gz"
+          target: "/tmp/"
+
+      - name: Deploy on VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ vars.SERVER_IP }}
+          username: ${{ vars.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            # Extract archive to app directory
+            mkdir -p /public_html
+            tar -xzf /tmp/deploy.tar.gz -C /public_html
+            rm /tmp/deploy.tar.gz
+
+            # Reload or start the app using PM2
+            cd /public_html
+            if pm2 describe tbm-azygos > /dev/null 2>&1; then
+              pm2 reload tbm-azygos
+            else
+              pm2 start .output/server/index.mjs --name tbm-azygos
+            fi
+
+            pm2 save
