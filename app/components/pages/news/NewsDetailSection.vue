@@ -27,7 +27,7 @@ const formatDate = (dateString) => {
         </h1>
 
         <div class="lg:flex items-center text-gray-500 mb-8">
-          <span>Oleh {{ news.author }}</span>
+          <span>{{ news.author }}</span>
           <span class="mx-2">&bull;</span>
           <span>{{ formatDate(news.date) }}</span>
         </div>

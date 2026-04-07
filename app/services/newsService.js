@@ -32,7 +32,7 @@ const newsData = [
             "<p>AZYGOS!!! JAYA!!!</p>",
         date: "2026-02-13",
         author: "Divisi Kaderisasi TBM Azygos",
-        image: "/pengumuman-tahap-4-penjaringan-tbm-azygos-xx.jpeg"
+        image: "/images/news/pengumuman-tahap-4-penjaringan-tbm-azygos-xx.jpeg"
     },
     {
         id: "2",
@@ -49,7 +49,7 @@ const newsData = [
             "<p style='margin-top: 16px'>Melalui kegiatan ini, FK Unmul berharap dapat meningkatkan kesadaran masyarakat, khususnya para pekerja sektor transportasi, akan pentingnya deteksi dini gangguan pernapasan dan pemeliharaan kesehatan paru. Baksos Raya Spirometri tidak hanya menjadi ajang pelayanan kesehatan, tetapi juga sarana edukasi dan penguatan peran institusi akademik dalam pengabdian kepada masyarakat. Kegiatan semacam ini diharapkan terus berlanjut sebagai langkah nyata mendukung pembangunan kesehatan di Kalimantan Timur.</p>",
         date: "2026-01-15",
         author: "Tim Bantuan Medis (TBM) Azygos",
-        image: "/baksos-raya-fk-unmul-pemeriksaan-spirometri-untuk-driver-ojek-online-di-samarinda.jpeg"
+        image: "/images/news/baksos-raya-fk-unmul-pemeriksaan-spirometri-untuk-driver-ojek-online-di-samarinda.jpeg"
     },
     {
         id: "3",
@@ -66,7 +66,7 @@ const newsData = [
         ,
         date: "2026-01-15",
         author: "Divisi Diklat TBM Azygos",
-        image: "/tbm-azygos-gelar-pelatihan-water-rescue-bersama-basarnas-untuk-kader-2025.jpeg"
+        image: "/images/news/tbm-azygos-gelar-pelatihan-water-rescue-bersama-basarnas-untuk-kader-2025.jpeg"
     },
     {
         id: "4",
@@ -101,7 +101,7 @@ const newsData = [
             "<p>AZYGOS!!! JAYA!!!</p>",
         date: "2025-11-15",
         author: "Divisi Kaderisasi TBM Azygos",
-        image: "/pengumuman-tahap-3-penjaringan-tbm-azygos-xx.png"
+        image: "/images/news/pengumuman-tahap-3-penjaringan-tbm-azygos-xx.png"
     },
     {
         id: "5",
@@ -152,7 +152,7 @@ const newsData = [
             "<p>AZYGOS!!! JAYA!!!</p>",
         date: "2025-10-08",
         author: "Divisi Kaderisasi TBM Azygos",
-        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlUj5YrG625Jf1cFtwl57WLkHa83hd83q6xtiqWw7N8pQk59mCGyQE4G178Qmhtt6V8voto5zGmxGJZ4XQ3Spxdne3ZsQKfpoyMaM65UCGfPaMW-IfX5I8SZYlI-oKG0qHb2WVIceObCrqHUltwBNgEF5OSjPYGGeGh7TYqxYgd3QdQZCxY-0vXbM28ck/s1350/EVENT%20REPORT%20INFO%20PENJAR%20%20(8).png"
+        image: "/images/news/pengumuman-tahap-2-penjaringan-tbm-azygos-xx.png"
     },
     {
         id: "6",
@@ -211,7 +211,7 @@ const newsData = [
             "<p>AZYGOS!!! JAYA!!!</p>",
         date: "2025-08-31",
         author: "Divisi Kaderisasi TBM Azygos",
-        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVruj0AR9AVIvMQ2hFtH4Pw0Jc-RpTWdTxEMAKicTFEf4SNKpQntO6l-frAMFqlJ2Sdczd0mwsk-kUAcJVij6TUmvgh1Jeh5dfONdFGvb8B4-Y0qk5eB3oJUADIIbvzc52y5dEaDIEiCyv6tWURFCnIp3GPBIXK6_4mE7dTtH5zOpsM3myLJdtsKKtQZs/s1350/EVENT%20REPORT%20INFO%20PENJAR%20.png"
+        image: "/images/news/pengumuman-lulus-tahap-1-penjaringan-tbm-azygos-xx.png"
     },
     {
         id: "7",
@@ -271,7 +271,7 @@ const newsData = [
             "<p>AZYGOS!!! JAYA!!!</p>",
         date: "2025-08-27",
         author: "Divisi Kaderisasi TBM Azygos",
-        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFlyjZwVdGaJFgFgLBJDE9aMNRBuEtLHoBMl2Vx6w1orO7u7h1vtG7jolNN0N4MR-44MzHkmCuGZhQdQOyAmXkQsVtiYrLncEdwtpIiGT1v7n0DQ8CEmyss9mZtC7H5IVHpZZu4dK5zf8rd3la2BDW8vJv5s9SCUZX5LMPqSVTPn0p2-L6pLCPslNb6OE/s1280/1000180893.jpg"
+        image: "/images/news/pengumuman-peserta-wawancara-penjaringan-tbm-azygos-xx.jpg"
     },
     {
         id: "8",
@@ -287,11 +287,11 @@ const newsData = [
             "<div class=\"separator\">Melalui sesi seminar dan pelatihan langsung, para peserta dibekali dengan ilmu serta praktik lapangan yang aplikatif dan relevan. Diharapkan, melalui kegiatan ini, angka kematian akibat kegagalan penanganan awal dalam situasi gawat darurat dapat diminimalkan, serta kesadaran masyarakat terhadap pentingnya pertolongan pertama dapat meningkat.</div>",
         date: "2025-08-25",
         author: "Divisi Diklat TBM Azygos",
-        image: "https://blogger.googleusercontent.com/img/a/AVvXsEhmxyVCUU4Iporz6QLm5_8FnAd1hlxs9JU8OgM9zJJG2F9F5VzGo_ei0pMjDbKc4Sl8qhTgPd1t8ZT1JVypYgsb0qupr59tin42ftbcsdZcHC_yb0A1PexIHgf15Ohj1ljf7pDbbjMS06rq850yEKNlpq3_6vrpiT6-Noz_ZBMakUuVIHDNPWYw9F8oeF4"
+        image: "/images/news/seminar-workshop-tbm-azygos-2025.png"
     },
     {
         id: "9",
-        title: "RAKERNAS X PON PTBMMKI 2024",
+        title: "Rakernas X PON PTBMMKI 2024",
         slug: "rakernas-x-pon-ptbmmki-2024",
         excerpt: "Rapat Kerja Nasional merupakan kegiatan tahunan rutin yang diadakan untuk membahas program kerja Badan Pengurus Pusat dan Wilayah (BPP & BPW), serta Dewan Pengawas Organisasi (DPO) PTBMMKI...",
         body: "<div class=\"separator\">\n" +
@@ -325,17 +325,17 @@ const newsData = [
             "</div>",
         date: "2024-11-10",
         author: "Divisi Diklat TBM Azygos",
-        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD0FaeVJimL4-1_HMtiiSxCnW9Cdz3xGDZffLiWbAZ4o6TZz4MwVcfkv8qwa7qYUPgYkypgrbvk1sFfC2BOabBWoV9TvVP2LAVvHd0UpubuEoujW4afW-OAhQ9P2N5yYNpFtfB0nTqVZz5IBLIA59UEP9usxHy5qUQ9Y1JKkJsR3WK1mt5NXSjoe8Bl2Q/s1920/DSC00871.JPG"
+        image: "/images/news/rakernas-x-pon-ptbmmki-2024.jpg"
     },
     {
         id: "10",
-        title: "WORKSHOP PENJARINGAN TBM AZYGOS XVIII",
+        title: "Workshop Penjaringan TBM AZYGOS XVIII",
         slug: "workshop-penjaringan-tbm-azygos-xviii",
         excerpt: "Bagi kalian yang ingin menjadi anggota TBM Azygos XVIII, silakan mengikuti Workshop TBM Azygos sebagai syarat wajib apabila kalian ingin mendaftarkan diri menjadi calon anggota TBM Azygos...",
         body: "<div class=\"separator\" style=\"clear: both; text-align: center;\"><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\">[📢&nbsp;<b>WORKSHOP PENJARINGAN TBM AZYGOS XVIII&nbsp;</b>📢]</span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\"><br></span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\"><i>Halo, semua!</i></span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\"><br></span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\">Bagi kalian yang ingin menjadi anggota TBM Azygos ke- XVIII, silahkan mengikuti Workshop TBM Azygos sebagai syarat wajib apabila kalian ingin mendaftarkan diri menjadi calon anggota TBM Azygos. Workshop ini berisi pemaparan mengenai organisasi dan juga mengenai TBM Azygos. Adapun Workshop TBM Azygos akan diselenggarakan pada :</span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\"><br></span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\">📆<span style=\"white-space: pre;\">\t</span>: Selasa, 22 Agustus 2023</span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\">⏱<span style=\"white-space: pre;\">\t</span>: 15.45 WITA - selesai</span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\">👔<span style=\"white-space: pre;\">\t</span>: Pakaian Formal Kuliah</span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\">📌<span style=\"white-space: pre;\">\t</span>: Integrated Laboratory (I-Lab) Unmul</span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\"><br></span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\">AZYGOS JAYA!!!</span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\"><br></span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\">#tbmazygosfkunmul #timesavingislifesaving</span></div><div class=\"separator\" style=\"clear: both;\"><span style=\"font-family: Raleway;\"><br></span></div><div class=\"separator\" style=\"clear: both;\"></div></div>",
         date: "2023-08-25",
         author: "Divisi Diklat TBM Azygos",
-        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhzU7EzLDkKIQzT7brB8P7ky6aWp2uIinKgLA7CzIjQlgcVrdXNANBMyYi9or5bD1zOLgkYKbFayHQX2kXypeqWs4oUx1ljSoAaqR5b3hfrYus-BiOYPWvLZvoJkw52q06QZ6bMcxkHusgv6dJb_sVXXDt9mSVM5NqFx0aBIdrxXQeOnbfXebLjShKeK7Z0/s1600/WhatsApp%20Image%202023-08-15%20at%2007.52.13.jpeg"
+        image: "/images/news/workshop-penjaringan-tbm-azygos-xviii.jpeg"
     }
 
 ];
