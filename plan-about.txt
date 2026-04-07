@@ -1,0 +1,11 @@
+Tujuan: Mempercantik AboutSection di index.vue.
+Tema: Selaras dengan perubahan UI sebelumnya (Elegan, Modern, dengan Glassmorphism/Gradients/Subtle shadows).
+
+Ide Redesain:
+1.  **Main About Block**: Buat teks "Apa itu TBM Azygos" lebih menonjol dengan layout split (kiri teks, kanan logo) di layar besar. Tambahkan badge "TBM Azygos" kecil di atas judul.
+2.  **Cards "Makna Nama" & "Keanggotaan"**: Tambahkan efek hover (`hover:-translate-y-1 hover:shadow-xl`), gradient border atas, dan background yang sedikit transparan atau gradient lembut agar tidak hanya putih polos.
+3.  **Visi & Misi**: Ubah layout Misi dari list standar menjadi struktur list yang lebih didesain (misal ikon cek/peluru custom bergaya modern). Berikan latar yang sedikit berbeda pada section Visi.
+4.  **Background Area**: Karena container utamanya `bg-gray-50`, kita akan ubah menjadi `bg-transparent` karena *global app layout* sudah punya ornamen latar belakang. Kita andalkan *glassmorphism* pada cards-nya.
+
+Saya akan modifikasi file `app/components/pages/home/AboutSection.vue`.
+Tidak perlu plan bertele-tele, saya akan langsung terapkan ini karena permintaannya sudah cukup bebas dan *straightforward*.
