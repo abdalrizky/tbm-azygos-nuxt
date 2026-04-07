@@ -44,7 +44,7 @@ const displayedNews = computed(() => {
 </script>
 
 <template>
-  <section class="relative py-20" :class="backgroundClass" id="berita">
+  <section class="py-12 relative z-10" :class="backgroundClass" id="berita">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 relative z-10">
         <h2 class="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Berita & Kegiatan</h2>

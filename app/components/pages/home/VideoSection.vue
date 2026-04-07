@@ -3,13 +3,10 @@ import { Icon } from '@iconify/vue';
 </script>
 
 <template>
-  <section class="relative py-20">
+  <section class="relative py-12">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-16 relative z-10">
-        <div class="inline-block p-3 rounded-full bg-blue-50/80 text-blue-600 mb-4 shadow-sm border border-blue-100/50 backdrop-blur-sm">
-           <Icon icon="mdi:play-circle-outline" style="font-size: 32px;" />
-        </div>
         <h2 class="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">Profil TBM Azygos</h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
           Simak cuplikan video perkenalan kami untuk mendapatkan gambaran lebih dekat mengenai keseharian dan aksi nyata TBM Azygos.

@@ -3,7 +3,7 @@ import { Icon } from '@iconify/vue';
 </script>
 
 <template>
-  <section class="relative py-20">
+  <section class="relative py-12">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt" id="tentang-kami">
       
       <!-- Main Intro Card -->
