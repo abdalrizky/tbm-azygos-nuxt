@@ -88,10 +88,9 @@ const displayedNews = computed(() => {
         </RouterLink>
       </div>
 
-      <div v-if="showViewAllButton" class="text-center mt-16 relative z-10">
-        <RouterLink to="/berita" class="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full font-bold shadow-[0_8px_20px_rgb(37,99,235,0.3)] hover:shadow-[0_12px_25px_rgb(37,99,235,0.4)] hover:-translate-y-1 transform transition-all duration-300">
-          Lihat Semua Berita 
-          <span class="ml-2 font-bold text-lg">&rarr;</span>
+      <div v-if="showViewAllButton" class="text-center mt-12 relative z-10">
+        <RouterLink to="/berita" class="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold shadow-sm hover:bg-blue-700 hover:shadow transition-all duration-200">
+          Lihat Semua Berita
         </RouterLink>
       </div>
     </div>
