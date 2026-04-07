@@ -65,7 +65,7 @@ onUnmounted(() => {
   <nav
     :class="[
       'fixed w-full top-0 z-50 transition-colors duration-300',
-      { 'bg-white shadow-lg': isNavSolid, 'bg-transparent': !isNavSolid }
+      { 'bg-white/70 backdrop-blur-lg border-b border-gray-100/30 shadow-sm': isNavSolid, 'bg-transparent': !isNavSolid }
     ]"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

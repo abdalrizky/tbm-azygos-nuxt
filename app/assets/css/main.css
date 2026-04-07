@@ -28,3 +28,9 @@
   opacity: 1;
   transform: rotate(3deg) translate(0px, -4px);
 }
+
+/* ── Global Pattern ──────────────────────────────────────── */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(107, 114, 128, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
