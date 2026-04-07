@@ -13,9 +13,6 @@ import { Icon } from '@iconify/vue';
             <img src="/azygos-logo.png" width="300" alt="Logo TBM Azygos" class="w-48 md:w-64 h-auto drop-shadow-xl" draggable="false" />
           </div>
           <div class="text-center md:text-left flex-grow">
-            <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100/80 text-blue-700 text-sm font-bold mb-4 tracking-wide shadow-sm border border-blue-200/50">
-              <Icon icon="mdi:information-outline" class="mr-2" /> Kenali Kami
-            </div>
             <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
               Apa itu <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">TBM Azygos?</span>
             </h3>
@@ -79,7 +76,7 @@ import { Icon } from '@iconify/vue';
 
         <div class="space-y-12 relative z-10">
           <!-- Visi -->
-          <div class="bg-gradient-to-r from-blue-50 to-transparent p-8 rounded-2xl border-l-4 border-blue-500">
+          <div class="bg-blue-50 p-8 rounded-2xl">
             <h3 class="text-2xl font-bold text-blue-800 mb-4 flex items-center">
               <Icon icon="mdi:eye-outline" class="mr-3 text-blue-600" /> Visi
             </h3>
@@ -89,7 +86,7 @@ import { Icon } from '@iconify/vue';
           </div>
 
           <!-- Misi -->
-          <div>
+          <div class="bg-blue-50 p-8 rounded-2xl">
             <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center px-2">
               <Icon icon="mdi:target-arrow" class="mr-3 text-blue-500" /> Misi Kami
             </h3>
