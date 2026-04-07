@@ -6,7 +6,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="pt-24 bg-white min-h-screen">
+  <div class="pt-24 bg-transparent min-h-screen">
     <PagesNewsSection />
   </div>
 </template>

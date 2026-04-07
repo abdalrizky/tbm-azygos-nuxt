@@ -79,7 +79,7 @@ const organizationData = ref([
 </script>
 
 <template>
-  <section class="pt-12 bg-white" id="tentang">
+  <section class="pt-12 relative z-10" id="tentang">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center w-full">
         <h2 class="text-4xl font-bold text-gray-800 mb-4">Struktur Organisasi</h2>

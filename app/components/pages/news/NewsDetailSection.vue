@@ -19,7 +19,7 @@ const formatDate = (dateString) => {
 </script>
 
 <template>
-  <section class="py-16 bg-white min-h-screen">
+  <section class="py-16 relative z-10 min-h-screen">
     <div v-if="news" class="max-w-4xl mx-auto px-4 sm-px-6 lg:px-8">
       <article>
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">

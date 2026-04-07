@@ -42,7 +42,7 @@ const workPrograms = ref([
 </script>
 
 <template>
-  <section class="py-12 bg-white" id="program-kerja">
+  <section class="py-12 relative z-10" id="program-kerja">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="text-center mb-16">
@@ -54,7 +54,7 @@ const workPrograms = ref([
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <div v-for="program in workPrograms" :key="program.title" class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+        <div v-for="program in workPrograms" :key="program.title" class="bg-white/70 backdrop-blur-md border border-white/40 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col transform hover:-translate-y-2 hover:shadow-[0_15px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
 
           <img :src="program.imageUrl" :alt="program.title" class="w-full h-48 object-cover">
 

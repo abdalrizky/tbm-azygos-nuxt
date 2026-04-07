@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <section class="py-12 bg-white" id="layanan">
+  <section class="py-12 relative z-10" id="layanan">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="text-center mb-16">
@@ -17,7 +17,7 @@
           <h3 class="text-3xl font-bold text-gray-900 text-center mb-6">
             Alur Kerja Sama
           </h3>
-          <div class="bg-white p-4 rounded-xl shadow-2xl">
+          <div class="bg-white/70 backdrop-blur-md border border-white/40 p-4 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
             <img
                 src="~/assets/images/alur-kerja-sama.png"
                 alt="Diagram alur kerja sama"
@@ -35,7 +35,7 @@
             <h4 class="text-2xl font-semibold text-gray-800 text-center mb-6">
               Biaya
             </h4>
-            <div class="bg-white p-4 rounded-xl shadow-2xl">
+            <div class="bg-white/70 backdrop-blur-md border border-white/40 p-4 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
               <img
                   src="~/assets/images/daftar-harga-peminjaman-alat-kesehatan.png"
                   alt="Daftar harga peminjaman alat kesehatan"
@@ -48,7 +48,7 @@
             <h4 class="text-2xl font-semibold text-gray-800 text-center mb-6">
               Syarat dan Ketentuan
             </h4>
-            <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+            <div class="bg-white/70 backdrop-blur-md border border-white/40 p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] text-gray-800">
               <ol class="list-decimal list-inside space-y-4 text-gray-700">
                 <li>
                   Menyerahkan surat permohonan peminjaman yang ditandatangani oleh pihak peminjam paling lambat 1 minggu sebelumnya.

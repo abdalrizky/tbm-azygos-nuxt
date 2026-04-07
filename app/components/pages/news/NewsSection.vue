@@ -27,7 +27,7 @@ const formatDate = (dateString) => {
 
 const route = useRoute();
 const backgroundClass = computed(() => {
-  return route.path === '/' ? 'bg-transparent' : 'bg-gray-50';
+  return 'bg-transparent';
 });
 
 // Use useAsyncData with a stable key and direct service call to prevent any hydration mismatch

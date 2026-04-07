@@ -6,7 +6,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="py-24 bg-white min-h-screen">
+  <div class="py-24 bg-transparent min-h-screen">
     <PagesManagementSection />
   </div>
 </template>
