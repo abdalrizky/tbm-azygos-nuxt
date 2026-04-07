@@ -64,10 +64,23 @@ function createNodeContent(d) {
         justify-content: center;
         flex-shrink: 0;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
       ">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 42px; height: 42px; color: #9ca3af;">
-          <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
-        </svg>
+        ${d.data.imageUrl ? `
+          <img 
+            src="${d.data.imageUrl}" 
+            alt="${d.data.nama}" 
+            style="width: 100%; height: 100%; object-fit: cover;" 
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <svg style="display: none; width: 42px; height: 42px; color: #9ca3af;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+          </svg>
+        ` : `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 42px; height: 42px; color: #9ca3af;">
+            <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+          </svg>
+        `}
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 4px; width: 100%; overflow: hidden;">

@@ -1,7 +1,9 @@
 <script setup>
-import {ref} from "vue";
+import {ref, computed} from "vue";
 import D3OrgChart from "~/components/chart/D3OrgChart.client.vue";
-const organizationData = ref([
+
+// This simulates the raw data coming from the API
+const rawOrganizationData = ref([
   { id: "1", parentId: "", nama: "Atoluan Joshua Nosa", jabatan: "Ketua Umum" },
   { id: "4", parentId: "1", nama: "Cecilia Florentina Sihotang", jabatan: "Kepala Divisi Diklat" },
   { id: "5", parentId: "1", nama: "Meilia Dwi Utami", jabatan: "Kepala Divisi Logistik" },
@@ -75,7 +77,20 @@ const organizationData = ref([
   { id: "71", parentId: "6", nama: "Safira Najwa", jabatan: "Anggota Divisi Banmed" },
   { id: "72", parentId: "9", nama: "Selma Maura", jabatan: "Anggota Divisi Medikraf" },
   { id: "73", parentId: "8", nama: "Syaila Dwi Az-Zahra", jabatan: "Anggota Divisi Kaderisasi" }
-])
+]);
+
+// Map over data to append imageUrl based on member names, making it easy to swap with an API
+const organizationData = computed(() => {
+  return rawOrganizationData.value.map(member => {
+    // Basic formatting: replace spaces with underscores and remove quotes
+    let fileName = member.nama.replace(/\s+/g, '_').replace(/’/g, '');
+
+    return {
+      ...member,
+      imageUrl: `/images/members/${fileName}.png`
+    };
+  });
+});
 </script>
 
 <template>
