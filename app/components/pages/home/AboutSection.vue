@@ -13,8 +13,8 @@ import { Icon } from '@iconify/vue';
             <img src="/azygos-logo.png" width="300" alt="Logo TBM Azygos" class="w-48 md:w-64 h-auto drop-shadow-xl" draggable="false" />
           </div>
           <div class="text-center md:text-left flex-grow">
-            <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">
-              Apa itu <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">TBM Azygos?</span>
+            <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 tracking-tight leading-tight">
+              Apa itu <span class="block md:hidden h-1"></span> <span class="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent">TBM Azygos?</span>
             </h3>
             <p class="text-gray-800 font-semibold text-lg mb-3">
               Tim Bantuan Medis Azygos <br class="hidden md:block"> Fakultas Kedokteran Universitas Mulawarman
