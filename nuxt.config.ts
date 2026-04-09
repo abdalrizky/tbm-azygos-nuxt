@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     },
   },
   gtag: {
-    id: 'G-XXXXXXXXXX' // Placeholder, will be updated if known
+    id: 'G-MYLEGGGH92'
   },
   app: {
     head: {
