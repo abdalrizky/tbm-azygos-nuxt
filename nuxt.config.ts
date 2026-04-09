@@ -32,7 +32,8 @@ export default defineNuxtConfig({
       titleTemplate: '%s - TBM Azygos',
       title: 'TBM Azygos',
       meta: [
-        { name: 'description', content: 'Tim Bantuan Medis (TBM) Azygos - Fakultas Kedokteran Universitas Mulawarman' }
+        { name: 'description', content: 'Tim Bantuan Medis (TBM) Azygos - Fakultas Kedokteran Universitas Mulawarman' },
+        { name: 'author', content: 'Muhammad Abdal Rizky' },
       ]
     }
   }
