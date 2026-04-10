@@ -5,15 +5,25 @@ import { Icon } from "@iconify/vue";
 const scrollToAboutSection = () => {
   const aboutSection = document.getElementById("tentang-kami");
   if (aboutSection) {
-    aboutSection.scrollIntoView({ behavior: "smooth" });
-    // aboutSection.sc
+    const rootStyles = getComputedStyle(document.documentElement);
+    const sectionOffset = Number.parseFloat(
+      rootStyles.getPropertyValue("--section-scroll-offset")
+    );
+    const targetTop =
+      window.scrollY + aboutSection.getBoundingClientRect().top -
+      (Number.isFinite(sectionOffset) ? sectionOffset : 96);
+
+    window.scrollTo({
+      top: Math.max(targetTop, 0),
+      behavior: "smooth",
+    });
   }
 };
 
 </script>
 
 <template>
-  <section class="container-custom relative from-blue-50 to-white min-h-screen flex items-center pt-16" id="beranda">
+  <section class="container-custom relative from-blue-50 to-white min-h-screen flex items-center pt-20" id="beranda">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="text-center lg:text-left">

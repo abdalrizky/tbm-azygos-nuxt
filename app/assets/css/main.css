@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --section-scroll-offset: 96px;
+}
+
+html {
+  scroll-padding-top: var(--section-scroll-offset);
+}
+
+.section-scroll-target {
+  scroll-margin-top: var(--section-scroll-offset);
+}
+
 /* ── NProgress page loading bar ──────────────────────────── */
 #nprogress {
   pointer-events: none;

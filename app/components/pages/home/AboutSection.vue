@@ -3,9 +3,9 @@ import { Icon } from '@iconify/vue';
 </script>
 
 <template>
-  <section class="relative py-12">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt" id="tentang-kami">
-      
+  <section class="relative py-12 section-scroll-target" id="tentang-kami">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
       <!-- Main Intro Card -->
       <div class="bg-white/70 backdrop-blur-md border border-white/40 p-8 md:p-12 lg:rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-12 transform transition-all duration-300 hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)]">
         <div class="flex flex-col md:flex-row items-center gap-10">
@@ -115,8 +115,3 @@ import { Icon } from '@iconify/vue';
   </section>
 </template>
 
-<style scoped>
-.scroll-mt {
-  scroll-margin-top: 100px;
-}
-</style>
