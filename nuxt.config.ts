@@ -27,6 +27,9 @@ export default defineNuxtConfig({
   gtag: {
     id: 'G-MYLEGGGH92'
   },
+  runtimeConfig: {
+    organizationApiBase: 'https://portal.tbmazygos.fk.unmul.ac.id',
+  },
   app: {
     head: {
       titleTemplate: '%s - TBM Azygos',

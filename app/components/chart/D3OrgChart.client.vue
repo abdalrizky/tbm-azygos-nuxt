@@ -4,26 +4,27 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, watch, nextTick } from 'vue'
 import { OrgChart } from 'd3-org-chart'
 import * as d3 from 'd3'
+import type { OrganizationChartNode } from '~/types/organization'
 
 const props = defineProps({
   data: {
-    type: Array,
+    type: Array as () => OrganizationChartNode[],
     required: true,
   },
 })
 
-const chartContainer = ref(null)
-let chart = null
+const chartContainer = ref<HTMLDivElement | null>(null)
+let chart: OrgChart | null = null
 
 /**
  * Returns the accent border color based on the node's hierarchy level.
  * Root node gets a green accent; all others use a neutral border.
  */
-function getNodeBorderColor(nodeData) {
+function getNodeBorderColor(nodeData: OrganizationChartNode) {
   return nodeData.parentId === '' ? '#10b981' : '#e5e7eb'
 }
 
@@ -31,7 +32,7 @@ function getNodeBorderColor(nodeData) {
  * Generates the HTML string for a single org chart node card.
  * Avatar is displayed above the name in a centered column layout.
  */
-function createNodeContent(d) {
+function createNodeContent(d: { data: OrganizationChartNode }) {
   const borderColor = getNodeBorderColor(d.data)
 
   return `
@@ -117,6 +118,10 @@ function createNodeContent(d) {
  * - Right/bottom: 5000/3000 covers the full expanded tree width/height
  */
 function applyPanConstraints() {
+  if (!chart) {
+    return
+  }
+
   const { zoomBehavior, svg } = chart.getChartState()
   if (!zoomBehavior || !svg) return
 
@@ -127,12 +132,14 @@ function applyPanConstraints() {
   svg.call(zoomBehavior)
 }
 
-onMounted(async () => {
-  if (!chartContainer.value || props.data.length === 0) return
+async function initializeChart(data: OrganizationChartNode[]) {
+  if (!chartContainer.value || data.length === 0) {
+    return
+  }
 
   chart = new OrgChart()
     .container(chartContainer.value)
-    .data(props.data)
+    .data(data)
     .nodeWidth(() => 200)
     .nodeHeight(() => 220)
     .childrenMargin(() => 50)
@@ -149,6 +156,10 @@ onMounted(async () => {
 
   await nextTick()
   applyPanConstraints()
+}
+
+onMounted(async () => {
+  await initializeChart(props.data)
 })
 
 watch(
@@ -158,6 +169,11 @@ watch(
       chart.data(newData).render().expandAll()
       await nextTick()
       applyPanConstraints()
+      return
+    }
+
+    if (!chart && newData.length > 0) {
+      await initializeChart(newData)
     }
   },
   { deep: true },
