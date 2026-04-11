@@ -12,5 +12,8 @@ export interface OrganizationChartNode {
   nama: string
   jabatan: string
   imageUrl: string
+  sektumData?: any
+  bendumData?: any
+  _isHidden?: boolean
+  _isSektumBendumHub?: boolean
 }
-

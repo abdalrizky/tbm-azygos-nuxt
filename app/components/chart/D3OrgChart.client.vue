@@ -32,8 +32,9 @@ function getNodeBorderColor(nodeData: OrganizationChartNode) {
  * Generates the HTML string for a single org chart node card.
  * Avatar is displayed above the name in a centered column layout.
  */
-function createNodeContent(d: { data: OrganizationChartNode }) {
-  const borderColor = getNodeBorderColor(d.data)
+function createSingleCardHtml(nodeData: OrganizationChartNode) {
+  if (!nodeData) return '';
+  const borderColor = getNodeBorderColor(nodeData)
 
   return `
     <div style="
@@ -67,11 +68,11 @@ function createNodeContent(d: { data: OrganizationChartNode }) {
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
         overflow: hidden;
       ">
-        ${d.data.imageUrl ? `
-          <img 
-            src="${d.data.imageUrl}" 
-            alt="${d.data.nama}" 
-            style="width: 100%; height: 100%; object-fit: cover;" 
+        ${nodeData.imageUrl ? `
+          <img
+            src="${nodeData.imageUrl}"
+            alt="${nodeData.nama}"
+            style="width: 100%; height: 100%; object-fit: cover;"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
           />
           <svg style="display: none; width: 42px; height: 42px; color: #9ca3af;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -93,7 +94,7 @@ function createNodeContent(d: { data: OrganizationChartNode }) {
           overflow-wrap: break-word;
           word-break: normal;
         ">
-          ${d.data.nama}
+          ${nodeData.nama}
         </div>
         <div style="
           color: #6b7280;
@@ -101,11 +102,50 @@ function createNodeContent(d: { data: OrganizationChartNode }) {
           line-height: 1.3;
           overflow-wrap: break-word;
         ">
-          ${d.data.jabatan}
+          ${nodeData.jabatan}
         </div>
       </div>
     </div>
-  `
+  `;
+}
+
+function createNodeContent(d: { data: OrganizationChartNode }) {
+  if (d.data._isHidden) {
+    // Acts as a vertical pipe to connect Ketua Umum to the divisions without breaking the layout
+    return `
+      <div style="width: 100%; height: 100%; display: flex; justify-content: center;">
+        <div style="width: 2px; height: 100%; background-color: #e5e7eb;"></div>
+      </div>
+    `
+  }
+
+  if (d.data._isSektumBendumHub) {
+    const hasSektum = !!d.data.sektumData;
+    const hasBendum = !!d.data.bendumData;
+
+
+    return `
+      <div style="width: 100%; height: 100%; display: flex; justify-content: space-between; position: relative;">
+        <!-- Card kiri (Sekretaris) -->
+        <div style="width: 200px; height: 100%; visibility: ${hasSektum ? 'visible' : 'hidden'};">
+          ${createSingleCardHtml(d.data.sektumData)}
+        </div>
+
+        <!-- Pipa vertikal poros pusat menerus ke Divisi -->
+        <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background-color: #e5e7eb; transform: translateX(-50%); z-index: -2;"></div>
+
+        <!-- Garis horizontal menghubungkan Sekretaris & Bendahara ke poros -->
+        <div style="position: absolute; left: 100px; right: 100px; top: 40px; height: 2px; background-color: #e5e7eb; transform: translateY(-50%); z-index: -2;"></div>
+
+        <!-- Card kanan (Bendahara) -->
+        <div style="width: 200px; height: 100%; visibility: ${hasBendum ? 'visible' : 'hidden'};">
+          ${createSingleCardHtml(d.data.bendumData)}
+        </div>
+      </div>
+    `
+  }
+
+  return createSingleCardHtml(d.data);
 }
 
 /**
@@ -140,7 +180,11 @@ async function initializeChart(data: OrganizationChartNode[]) {
   chart = new OrgChart()
     .container(chartContainer.value)
     .data(data)
-    .nodeWidth(() => 200)
+    .nodeWidth((d) => {
+      if (d.data._isHidden) return 2;
+      if (d.data._isSektumBendumHub) return 480; // 200 + 200 + spacing
+      return 200;
+    })
     .nodeHeight(() => 220)
     .childrenMargin(() => 50)
     .siblingsMargin(() => 20)
