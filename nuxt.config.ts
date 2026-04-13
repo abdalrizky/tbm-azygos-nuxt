@@ -28,7 +28,9 @@ export default defineNuxtConfig({
     id: 'G-MYLEGGGH92'
   },
   runtimeConfig: {
-    organizationApiBase: 'https://portal.tbmazygos.fk.unmul.ac.id',
+    public: {
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'https://portal.tbmazygos.fk.unmul.ac.id/api/v1',
+    }
   },
   app: {
     head: {

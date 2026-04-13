@@ -2,7 +2,7 @@
 import { Icon } from "@iconify/vue";
 import { computed } from "vue";
 
-const { data: configs } = await useFetch('https://portal.tbmazygos.fk.unmul.ac.id/api/v1/configs', {
+const { data: configs } = await useApiFetch('/configs', {
   key: 'footer-configs'
 });
 

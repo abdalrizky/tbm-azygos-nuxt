@@ -19,7 +19,7 @@ function isOrganizationApiItem(value: unknown): value is OrganizationApiItem {
 
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
-  const endpoint = `${config.organizationApiBase}/api/v1/organization`
+  const endpoint = `${config.public.apiBase}/organization`
 
   try {
     const response = await $fetch<unknown>(endpoint, {
