@@ -1,11 +1,13 @@
 <script setup>
 import { Icon } from "@iconify/vue";
-import { getContacts } from '~/services/contactsService';
+import { computed } from "vue";
 
-// Use useAsyncData with a stable key and direct service call to prevent any hydration mismatch
-const { data: contacts } = await useAsyncData('contacts-stable', () => {
-  return Promise.resolve(getContacts())
+const { data: configs } = await useFetch('https://portal.tbmazygos.fk.unmul.ac.id/api/v1/configs', {
+  key: 'footer-configs'
 });
+
+const contacts = computed(() => configs.value?.footer?.contacts);
+const socialMedia = computed(() => configs.value?.footer?.social_media);
 </script>
 
 <template>
@@ -35,25 +37,25 @@ const { data: contacts } = await useAsyncData('contacts-stable', () => {
             </div>
             <div class="flex items-center">
               <Icon icon="ic:baseline-whatsapp" class="w-5 h-5 mr-2" style="font-size: 24px;" />
-              <a :href="'https://wa.me/' + contacts.whatsapp.number" target="_blank">{{ contacts.whatsapp.display }}</a>
+              <a :href="contacts.whatsapp.url" target="_blank">{{ contacts.whatsapp.number }}</a>
             </div>
-            <a :href="contacts.address.link" class="flex items-center text-left" target="_blank">
+            <div class="flex items-center text-left">
               <Icon icon="mdi:company" class="w-5 h-5 mr-2" style="font-size: 24px;" />
-              <p>{{ contacts.address.text }}</p>
-            </a>
+              <p>{{ contacts.address }}</p>
+            </div>
           </div>
         </div>
 
-        <div v-if="contacts">
+        <div v-if="socialMedia">
           <h4 class="text-lg font-semibold mb-4">Media Sosial</h4>
           <div>
-            <a :href="contacts.socialMedia.instagram.link" class="flex items-center hover:text-white transition-colors" target="_blank">
+            <a :href="socialMedia.instagram.url" class="flex items-center hover:text-white transition-colors" target="_blank">
               <Icon icon="mdi:instagram" class="w-6 h-6 mr-1" style="font-size: 12px;" />
-              <p class="text-sm">{{ contacts.socialMedia.instagram.handle }}</p>
+              <p class="text-sm">{{ socialMedia.instagram.username }}</p>
             </a>
-            <a :href="contacts.socialMedia.facebook.link" class="flex items-center hover:text-white transition-colors mt-2" target="_blank">
+            <a :href="socialMedia.facebook.url" class="flex items-center hover:text-white transition-colors mt-2" target="_blank">
               <Icon icon="mdi:facebook" class="w-6 h-6 mr-1" style="font-size: 12px;" />
-              <p class="text-sm">{{ contacts.socialMedia.facebook.handle }}</p>
+              <p class="text-sm">{{ socialMedia.facebook.name }}</p>
             </a>
           </div>
         </div>
