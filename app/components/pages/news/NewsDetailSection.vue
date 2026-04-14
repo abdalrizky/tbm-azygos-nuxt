@@ -32,7 +32,7 @@ const formatDate = (dateString) => {
           <span>{{ formatDate(news.date) }}</span>
         </div>
 
-        <img :src="news.image" :alt="news.title" class="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg mb-8">
+        <img :src="news.header_image" :alt="news.title" class="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg mb-8">
 
         <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
           <div v-html="news.body"></div>

@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { getNewsBySlug } from '~/services/newsService'
-
 const route = useRoute()
 const slug = route.params.slug as string
 
-// Use useAsyncData with a stable key and direct service call to prevent any hydration mismatch
-const { data: newsData, error } = await useAsyncData(
-  `news-detail-${slug}`,
-  () => {
-    return Promise.resolve(getNewsBySlug(slug))
+// Use useApiFetch with a stable key and proper transform
+const { data: newsData, error } = await useApiFetch(
+  `/news/${slug}`,
+  {
+    key: `news-detail-${slug}`,
+    transform: (res: any) => res.data
   }
 )
 
@@ -19,7 +18,7 @@ if (error.value || !newsData.value) {
 useSeoMeta({
   title: () => `${newsData.value?.title}`,
   description: () => newsData.value?.excerpt,
-  ogImage: () => newsData.value?.image
+  ogImage: () => newsData.value?.header_image
 })
 </script>
 

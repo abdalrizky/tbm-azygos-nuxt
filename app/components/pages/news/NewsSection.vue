@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
-import { getAllNews } from '~/services/newsService';
 
 
 const props = defineProps({
@@ -30,16 +29,16 @@ const backgroundClass = computed(() => {
   return 'bg-transparent';
 });
 
-// Use useAsyncData with a stable key and direct service call to prevent any hydration mismatch
-const { data: allNews } = await useAsyncData('news-list-stable', () => {
-  return Promise.resolve(getAllNews())
+const { data: newsResponse } = await useApiFetch('/news', {
+  key: 'news-list',
+  transform: (res) => res.data || []
 });
 
 const displayedNews = computed(() => {
-  if (props.limit > 0 && allNews.value) {
-    return allNews.value.slice(0, props.limit);
+  if (props.limit > 0 && newsResponse.value) {
+    return newsResponse.value.slice(0, props.limit);
   }
-  return allNews.value || [];
+  return newsResponse.value || [];
 });
 </script>
 
@@ -63,7 +62,7 @@ const displayedNews = computed(() => {
           <article class="h-full flex flex-col">
             <div class="relative h-56 overflow-hidden">
               <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10"></div>
-              <img :src="news.image" :alt="news.title" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" />
+              <img :src="news.header_image" :alt="news.title" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" />
               <div class="absolute bottom-4 left-4 z-20">
                 <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-blue-700 text-xs font-bold rounded-full shadow-sm">
                   {{ formatDate(news.date) }}
