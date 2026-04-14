@@ -57,6 +57,10 @@ const formatDate = (dateString) => {
 
 <style scoped>
 
+:deep(p) {
+  margin-bottom: 1.5rem;
+}
+
 :deep(ol) {
   list-style-type: decimal;
   padding-left: 40px;
