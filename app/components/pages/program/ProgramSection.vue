@@ -1,44 +1,10 @@
 <script setup>
 import { ref } from 'vue';
-import timReaksiCepatImg from '~/assets/images/program-kerja-tim-reaksi-cepat.jpg';
-import baktiSosialImg from '~/assets/images/program-kerja-bakti-sosial.jpeg';
-import tendaTensiImg from '~/assets/images/program-kerja-tenda-tensi.jpg';
-import seminarWorkshopImg from '~/assets/images/program-kerja-seminar-and-workshop.jpeg';
-import jagaMedisImg from '~/assets/images/program-kerja-jaga-medis-insidental.jpg';
-import azygosGoesToSchoolImg from '~/assets/images/program-kerja-azygos-goes-to-school.jpeg';
 
-const workPrograms = ref([
-  {
-    title: 'Tim Reaksi Cepat',
-    description: 'TRC merupakan kegiatan TBM Azygos sebagai tim bantuan medis yang selalu siap siaga ketika terjadi bencana. TBM Azygos akan selalu berusaha untuk menjadi lini terdepan dalam membantu korban bencana baik dalam bentuk tenaga medis maupun dalam bentuk lainnya.',
-    imageUrl: timReaksiCepatImg
-  },
-  {
-    title: 'Bakti Sosial',
-    description: 'Merupakan program kerja TBM Azygos dalam hal pengabdian masyarakat. Diharapkan dalam kegiatan ini TBM Azygos dapat mengamalkan ilmu yang dimiliki serta membangun kepekaan dan kepedulian terhadap sesama, khususnya mengenai peningkatan kualitas kesehatan masyarakat.',
-    imageUrl: baktiSosialImg
-  },
-  {
-    title: 'Tenda Tensi',
-    description: 'Tenda tensi adalah sebuah kegiatan TBM Azygos yang memberikan pemeriksaan tekanan darah gratis dan pemeriksaan GCU dengan tarif tertentu. Program kerja ini bertujuan untuk meningkatkan kesadaran masyarakat akan pentingnya pemeriksaan kesehatan secara rutin.',
-    imageUrl: tendaTensiImg
-  },
-  {
-    title: 'Seminar & Workshop',
-    description: 'Merupakan program kerja untuk mengoptimalkan potensi dan meningkatkan keterampilan pengurus dalam hal penanganan medis. Beberapa tema telah diangkat, diantaranya adalah Basic Life Support dan Sirkumsisi, guna meningkatkan pengetahuan masyarakat seputar dunia medis.',
-    imageUrl: seminarWorkshopImg
-  },
-  {
-    title: 'Jaga Medis Insidental',
-    description: 'Merupakan program kerja dimana TBM Azygos menjadi tim medis pada sebuah kegiatan instansi maupun lembaga luar yang telah bekerja sama. Terdapat dua macam jaga insidental, yaitu insidental profit dan insidental nonprofit.',
-    imageUrl: jagaMedisImg
-  },
-  {
-    title: 'Azygos Goes to School',
-    description: 'Program kerja TBM Azygos untuk memberikan edukasi kesehatan dan penanganan medis dasar kepada siswa-siswi di sekolah. Tema yang diangkat seperti Basic Life Support dan P3K diharapkan dapat meningkatkan pengetahuan generasi muda seputar dunia medis.',
-    imageUrl: azygosGoesToSchoolImg
-  }
-]);
+const { data: workPrograms } = await useApiFetch('/programs', {
+  key: 'program-list',
+  transform: (res) => res.data || []
+});
 </script>
 
 <template>
@@ -54,12 +20,12 @@ const workPrograms = ref([
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <div v-for="program in workPrograms" :key="program.title" class="bg-white/70 backdrop-blur-md border border-white/40 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col transform hover:-translate-y-2 hover:shadow-[0_15px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+        <div v-for="program in workPrograms" :key="program.id || program.name" class="bg-white/70 backdrop-blur-md border border-white/40 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden flex flex-col transform hover:-translate-y-2 hover:shadow-[0_15px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
 
-          <img :src="program.imageUrl" :alt="program.title" class="w-full h-48 object-cover">
+          <img :src="program.header_image" :alt="program.name" class="w-full h-48 object-cover">
 
           <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ program.title }}</h3>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ program.name }}</h3>
             <p class="text-gray-600 leading-relaxed flex-grow">{{ program.description }}</p>
           </div>
 
